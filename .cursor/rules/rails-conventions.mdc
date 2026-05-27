@@ -1,0 +1,14 @@
+---
+description: Rails 8 conventions for the sample todo app
+alwaysApply: true
+---
+
+# Rails 8 Conventions
+
+Any AI-generated changes for this project must strictly adhere to the following Rails 8 conventions and architectural guidelines:
+
+* **Strong Parameters via `params.expect`**: Always filter controller inputs using the Rails 8 `params.expect` syntax (e.g. `params.expect(todo: [ :description ])`) instead of the older `params.require` and `params.permit` methods.
+* **Reversible Migrations**: Ensure all active record migrations are fully reversible. Write them inside a standard `change` block using reversible DSL operations, or provide explicit `up` and `down` methods if complex schema mutations are required.
+* **Hotwire Stack Preference**: Prioritize Turbo (Turbo Streams, Turbo Frames) and Stimulus controllers over custom inline JavaScript, third-party scripting libraries, or ad-hoc jQuery patterns.
+* **Leverage Standard Generators**: Use `bin/rails generate` commands rather than hand-writing controller, model, test, or migration templates from scratch.
+* **Scoped Schema & Models**: Keep database schemas, migrations, and model definitions scoped strictly to the todo app. Do not import model behaviors or database tables from other student assignments or external codebases.

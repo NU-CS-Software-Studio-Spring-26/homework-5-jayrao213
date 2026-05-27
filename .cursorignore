@@ -1,0 +1,54 @@
+# =========================================================================
+# Credentials & Secrets (Prevent accidental AI token leak)
+# =========================================================================
+.env
+.env.*
+config/master.key
+config/credentials/*.key
+*.key
+
+# =========================================================================
+# Rails & Database (Ignore large log files, temp assets, and binary DBs)
+# =========================================================================
+log/
+tmp/
+storage/
+public/assets/
+public/packs/
+app/assets/builds/*
+
+# Ignore SQLite databases, journals, write-ahead logs (WAL), and shared memory (SHM)
+db/*.sqlite3
+db/*.sqlite3-journal
+db/*.sqlite3-shm
+db/*.sqlite3-wal
+
+# =========================================================================
+# Dependencies & Package Managers
+# =========================================================================
+node_modules/
+.bundle/
+vendor/bundle/
+vendor/cache/
+
+# =========================================================================
+# Tooling Caches & Linters
+# =========================================================================
+.bootsnap/
+.rubocop-cache/
+coverage/
+
+# =========================================================================
+# Deployment & Docker Metadata
+# =========================================================================
+.kamal/
+.dockerignore
+Dockerfile*
+
+# =========================================================================
+# IDE & System Files
+# =========================================================================
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
