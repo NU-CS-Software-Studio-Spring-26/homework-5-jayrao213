@@ -13,6 +13,6 @@ class TodoTest < ActiveSupport::TestCase
     t2 = Todo.create!(description: "Second", position: 2)
     t3 = Todo.create!(description: "Third", position: 8)
 
-    assert_equal [t2, t1, t3], Todo.ordered.to_a
+    assert_equal [ t2, t1, t3 ], Todo.ordered.to_a
   end
 end

@@ -50,7 +50,7 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
     t1 = todos(:one)
     t2 = todos(:two)
 
-    post reorder_todos_url, params: { todo_ids: [t2.id, t1.id] }, as: :json
+    post reorder_todos_url, params: { todo_ids: [ t2.id, t1.id ] }, as: :json
     assert_response :success
 
     assert_equal 1, t2.reload.position
