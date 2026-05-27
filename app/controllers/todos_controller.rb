@@ -1,9 +1,9 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: %i[ show edit update destroy ]
+  before_action :set_todo, only: %i[ show edit update destroy toggle_priority ]
 
   # GET /todos or /todos.json
   def index
-    @todos = Todo.all
+    @todos = Todo.ordered
   end
 
   # GET /todos/1 or /todos/1.json
@@ -61,6 +61,35 @@ class TodosController < ApplicationController
     respond_to do |format|
       format.html { render :hello }
       format.json { render json: "hello world!" }
+    end
+  end
+
+  # POST /todos/reorder
+  def reorder
+    todo_ids = params[:todo_ids] || []
+
+    Todo.transaction do
+      todo_ids.each_with_index do |id, index|
+        Todo.where(id: id).update_all(position: index + 1)
+      end
+    end
+
+    head :ok
+  end
+
+  # PATCH /todos/1/toggle_priority
+  def toggle_priority
+    @todo.update!(high_priority: !@todo.high_priority)
+
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace(
+          helpers.dom_id(@todo),
+          partial: "todos/todo",
+          locals: { todo: @todo }
+        )
+      end
+      format.html { redirect_to todos_path }
     end
   end
 

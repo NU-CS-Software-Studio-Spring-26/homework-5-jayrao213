@@ -1,7 +1,14 @@
-<div id="<%= dom_id todo %>">
-  <p>
-    <strong>Description:</strong>
-    <%= todo.description %>
-  </p>
+<div id="<%= dom_id todo %>" class="todo-content <%= 'is-high-priority' if todo.high_priority %>">
+  <div class="todo-text">
+    <p>
+      <strong>Description:</strong>
+      <%= todo.description %>
+    </p>
+  </div>
 
+  <div class="todo-priority-toggle">
+    <%= button_to toggle_priority_todo_path(todo), method: :patch, class: "priority-toggle-btn #{'priority-active' if todo.high_priority}", data: { turbo: true } do %>
+      <%= todo.high_priority ? "★ High" : "☆ Normal" %>
+    <% end %>
+  </div>
 </div>

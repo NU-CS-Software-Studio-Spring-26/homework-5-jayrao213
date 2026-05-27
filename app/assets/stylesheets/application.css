@@ -8,3 +8,185 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 20px;
+  background-color: #f7fafc;
+  color: #2d3748;
+}
+
+input, select, textarea, button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+  outline: none;
+}
+
+input[type="submit"] {
+  background-color: #4f46e5;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.1);
+  transition: background-color 0.2s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #4338ca;
+}
+
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #1a202c;
+}
+
+.todo-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  background: #ffffff;
+  cursor: grab;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-item:hover {
+  border-color: #cbd5e0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+.todo-item:active {
+  cursor: grabbing;
+}
+
+.todo-item p {
+  margin: 0;
+}
+
+.todo-actions a {
+  color: #4f46e5;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.todo-actions a:hover {
+  text-decoration: underline;
+}
+
+.sortable-ghost {
+  opacity: 0.5;
+  background-color: #edf2f7 !important;
+  border: 2px dashed #cbd5e0 !important;
+  box-shadow: none !important;
+}
+
+.new-todo-btn {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #4f46e5;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
+  transition: background-color 0.2s ease;
+}
+
+.new-todo-btn:hover {
+  background-color: #4338ca;
+}
+
+.todo-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin-right: 20px;
+  transition: border-color 0.2s ease, padding 0.2s ease;
+}
+
+.todo-text {
+  flex-grow: 1;
+}
+
+.todo-content.is-high-priority {
+  border-left: 4px solid #f59e0b;
+  padding-left: 12px;
+}
+
+.todo-content.is-high-priority .todo-text p {
+  font-weight: 600;
+  color: #1a202c;
+}
+
+.priority-toggle-btn {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e0;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #718096;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.priority-toggle-btn:hover {
+  background-color: #edf2f7;
+  color: #4a5568;
+  border-color: #a0aec0;
+}
+
+.priority-active {
+  background-color: #fef3c7 !important;
+  color: #d97706 !important;
+  border-color: #fcd34d !important;
+  box-shadow: 0 1px 2px rgba(217, 119, 6, 0.1);
+}
+
+.priority-active:hover {
+  background-color: #fde68a !important;
+  color: #b45309 !important;
+  border-color: #fbbf24 !important;
+}
+
+.todo-priority-toggle form {
+  display: inline;
+}
+
+

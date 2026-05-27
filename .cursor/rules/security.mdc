@@ -1,0 +1,14 @@
+---
+description: Security standards and constraints for the todo app
+alwaysApply: true
+---
+
+# Security Best Practices
+
+Any AI-generated changes for this project must strictly comply with the following security guidelines:
+
+* **No Secrets Exposure**: Never write, log, output, or echo credentials, secrets, private keys, API tokens, or production passwords in logs, database values, terminal outputs, or source code. Store secrets inside secure credentials (`config/credentials.yml.enc`) or fetch them via environment variables (`ENV[...]`).
+* **No `eval` on User Input**: Avoid using `eval`, `instance_eval`, `class_eval`, or dynamic `send` method calls on user-supplied parameter inputs.
+* **XSS Prevention**: Never invoke `.html_safe` or `raw` on untrusted user inputs. Leverage Rails' standard view-layer HTML escaping default behavior.
+* **SQL Injection Mitigation**: Always parameterize query conditions (e.g. `Todo.where("description LIKE ?", "%#{query}%")` or pass hash parameters `Todo.where(description: query)`). Never string-interpolate user input directly into Active Record query chains or raw SQL executions.
+* **Maintain Default Security Defenses**: Do not disable built-in Rails protections. Do not bypass Cross-Site Request Forgery (CSRF) tokens (e.g., do not add `skip_before_action :verify_authenticity_token`), do not skip strong parameters validation, and preserve baseline session security checks.
